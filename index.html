@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Sheet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+            <h1>Sign Up</h1>
+            <div id="su"> 
+            <fieldset id="fs">
+            <legend>Sign Up</legend>
+            <form id="signU" onsubmit="return summary()" onreset="reset()">
+                <label for="user">Username:</label>
+                <input type="text" id="user" name="user" onblur="un()" onfocus="un()"><br><br>
+                
+                <label for="pfn">Name: </label>
+                <input type="text" id="pfn" name="pfn" onblur="pn()" onfocus="pn()"><br><br>
+
+                <label for="pass">Password:</label>
+                <input type="password" id="pass" name="pass" onblur="pw()" onfocus="pw()"><br><br>
+
+                <label for="gen">Gender:</label>
+                <select name="gen" id="gen" onblur="gend()" onfocus="gend()">
+                    <option value="Prefer not to mention.">Prefer not to Mention</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    
+                </select><br><br>
+
+                <label for="em">Email Address:</label>
+                <input type="email" id="em" name="em" onblur="email()" onfocus="email()"><br><br>
+
+                <label for="add">Address:</label>
+                <input type="text" id="add" name="add" onblur="addss()" onfocus="addss()"><br><br>
+
+                <label for="ints">Interests: </label><br>
+                <textarea name="tArea" id="tArea" cols="40" rows="4" onblur="int()" onfocus="int()"></textarea><br><br>
+                
+                <input type="submit" value="Submit">
+                <button type="reser" onclick="reset()">Reset</button>
+                
+</div>
+</fieldset>
+
+<fieldset id="info"> 
+    <legend>Summary</legend>
+    <div id="inf">
+        <h1>Information: </h1>
+        <p> Your information is summarized below: </p><br>
+        <p id="summary"></p>
+    </div>
+</fieldset>
+        </form>
+
+    <script>
+    function un()
+    {
+        var un=document.getElementById("user").value;
+        if (un=="")
+        {
+            document.getElementById("user").style.borderColor = "red";
+        }
+        else
+    {
+        document.getElementById("user").style.borderColor = "green";
+    }
+
+    }
+
+        function pn()
+    {
+        var pn=document.getElementById("pfn").value;
+        if (pn=="")
+        {
+            document.getElementById("pfn").style.borderColor = "red";
+        }
+        else {
+            document.getElementById("pfn").style.borderColor = "green";
+        }
+        
+    }
+
+    function pw()
+    {
+        var pw=document.getElementById("pass").value;
+        if (pw=="")
+        {
+            document.getElementById("pass").style.borderColor = "red";
+        }
+        else
+    {
+        document.getElementById("pass").style.borderColor = "green";
+    }
+}
+
+function email()
+{
+    var e=document.getElementById("em").value;
+    if(e==""){
+        document.getElementById("em").style.borderColor="red";
+    }
+    else{
+        document.getElementById("em").style.borderColor="green";
+    }
+    }
+
+function addss()
+{
+var ad=document.getElementById("add").value;
+    if (ad=="")
+    {
+        document.getElementById("add").style.borderColor = "red";
+    }else
+    {
+        document.getElementById("add").style.borderColor = "green"; 
+    } 
+}
+function gend(){
+    var g = document.getElementById("gen").value;
+        if(g=="")
+        {
+            document.getElementById("gen").style.borderColor = "red";
+        }
+        else{
+            document.getElementById("gen").style.borderColor = "green"; 
+        }
+}
+        
+
+function int(){
+    var ints=document.getElementById("tArea").value;
+    if(ints == ""){
+        document.getElementById("tArea").style.borderColor="red";
+    }
+    else
+    {
+        document.getElementById("tArea").style.borderColor="green";
+    }
+    }
+
+function summary()
+    {
+        var pn = document.getElementById("pfn").value;
+        var un = document.getElementById("user").value;
+        var pw = document.getElementById("pass").value;
+        var e = document.getElementById("em").value;
+        var ad = document.getElementById("add").value;
+        var g = document.getElementById("gen").value;
+        var i = document.getElementById("tArea").value;
+
+        document.getElementById("summary").innerHTML = "Username: " + un + "<br>" +"Name: " + pn + "<br>" + "Password: " + pw + "<br>" + "Gender: " + g + "<br>" + "Email: " + e + "<br>" + "Address: " + ad + "<br>" + "Interests: " + i + "<br>";
+        return false;
+    }
+
+    function reset()
+    {
+        var summary=document.getElementById("summary");
+        summary.innerHTML="";
+    }
+
+    </script>
+</body>
+</html>
